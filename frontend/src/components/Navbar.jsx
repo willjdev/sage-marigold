@@ -1,15 +1,30 @@
 import { memo, useState } from "react";
 import { Link } from "react-router-dom";
+import logoImage from "../assets/project_logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
   return (
-    <nav className="relative flex justify-between items-center py-4 px-8 bg-gray-100 shadow-md">
+    <nav className="relative flex justify-between items-center py-4 px-8 bg-[#f5f5f5] shadow-md">
       <h1 className="text-2xl font-bold">
+        <img src={logoImage} alt="Sage Marigold Logo" className="h-12 w-12 inline mr-2" />
         <Link className="text-emerald-700 font-cursive! hover:text-gray-600" to="/">
-          Sage Marigold
+          HELPING HANDS
         </Link>
       </h1>
+      <div className="hidden md:flex flex-1 mx-8 gap-2">
+        <input
+          type="text"
+          placeholder="Search items..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full max-w-2xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-600"
+        />
+        <button className="bg-black text-white px-6 py-2 text-sm font-semibold hover:bg-gray-800">
+          Search
+        </button>
+      </div>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden flex flex-col gap-1 cursor-pointer"
@@ -20,23 +35,13 @@ const Navbar = () => {
       </button>
       <ul className="hidden md:flex gap-6 items-center">
         <li className="hover:border-b-2 hover:border-emerald-700">
-          <Link to="/" className="text-black hover:text-gray-600">
-            Home
-          </Link>
-        </li>
-        <li className="hover:border-b-2 hover:border-emerald-700">
-          <Link to="/About" className="text-black hover:text-gray-600">
-            About
-          </Link>
-        </li>
-        <li className="hover:border-b-2 hover:border-emerald-700">
           <Link to="/Donate" className="text-black hover:text-gray-600">
             Donate
           </Link>
         </li>
         <li className="hover:border-b-2 hover:border-emerald-700">
-          <Link to="/Explore" className="text-black hover:text-gray-600">
-            Explore
+          <Link to="/About" className="text-black hover:text-gray-600">
+            About
           </Link>
         </li>
         <li className="hover:border-b-2 hover:border-emerald-700">
