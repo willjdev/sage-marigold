@@ -1,7 +1,7 @@
 const db = require('../config/db');
 const Request = require('../models/Request');
 const { response } = require('express');
-const { sendEmail } = require('../utils/emailServices');
+const { sendEmail } = require('../services/emailServices');
 
 const createRequest = async (req, res = response) => {
   const { item_id, application_data } = req.body;

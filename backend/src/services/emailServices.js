@@ -43,7 +43,7 @@ const sendEmail = async (donorEmail, requesterEmail, itemName, pickupInstruction
     
         // Email content for donor
         const mailToDonor = {
-            from: "Helping Hands <helping.hands@example.com>",
+            from: `Helping Hands <${process.env.EMAIL_USER}>`,
             to: donorEmail,
             subject: `Your donation of ${itemName} is ready for next step!`,
             html: htmlContent
@@ -51,7 +51,7 @@ const sendEmail = async (donorEmail, requesterEmail, itemName, pickupInstruction
     
         // Email content for requester
         const mailToRequester = {
-            from: "Helping Hands <helping.hands@example.com>",
+            from: `Helping Hands <${process.env.EMAIL_USER}>`,
             to: requesterEmail,
             subject: `Good news! Your request for ${itemName} has been accepted!`,
             html: htmlContent
