@@ -46,7 +46,6 @@ const sendEmail = async (donorEmail, requesterEmail, itemName, pickupInstruction
             from: "Helping Hands <helping.hands@example.com>",
             to: donorEmail,
             subject: `Your donation of ${itemName} is ready for next step!`,
-            //text: `You have accepted the request for ${itemName}. Please contact the requester at ${requesterEmail} to arrange the pickup or delivery. Thank you for your generosity!`,
             html: htmlContent
         };
     
@@ -55,7 +54,6 @@ const sendEmail = async (donorEmail, requesterEmail, itemName, pickupInstruction
             from: "Helping Hands <helping.hands@example.com>",
             to: requesterEmail,
             subject: `Good news! Your request for ${itemName} has been accepted!`,
-            //text: `Your request for ${itemName} has been accepted by the donor. Please contact the donor at ${donorEmail} to arrange the pickup or delivery. Thank you for using Helping Hands!`,
             html: htmlContent
         }
     
@@ -76,7 +74,3 @@ module.exports = {
     sendEmail,
 };
     
-
-
-
-// Armar el contenido del correo con HTML
